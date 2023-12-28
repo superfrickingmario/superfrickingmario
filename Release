@@ -1,0 +1,8 @@
+Origin: super fricking mario!!
+Label: supermario
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm
+Components: main
+Description: so its a fricking super mario that will start marioing
