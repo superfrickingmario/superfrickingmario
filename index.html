@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+.<!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>super frickign mario</title>
+  <title>super frickign na mario</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -11,16 +11,16 @@
 <body>
 
 <div class="container">
-	<h1><img src="CydiaIcon.png"> Reposi3</h1>
+    <h1><img src="CydiaIcon.png"> Reposi3</h1>
 </div>
 
 <div class="container">
-	<div class="card">
-		<div class="card-body">
-			<p><span class="text-primary"><b>Reposi3</span></b> is a Cydia repository template.</p>
-			<a class="btn btn-sm btn-primary" href="cydia://url/https://cydia.saurik.com/api/share#?source=https://supermamon.github.io/Reposi3/">Add to Cydia</a>
-		</div>
-	</div>
+    <div class="card">
+        <div class="card-body">
+            <p><span class="text-primary"><b>Reposi3</span></b> is a Cydia repository template.</p>
+            <a class="btn btn-sm btn-primary" href="cydia://url/https://cydia.saurik.com/api/share#?source=https://supermamon.github.io/Reposi3/">Add to Cydia</a>
+        </div>
+    </div>
 </div>
 <p></p>
 <div class="container">
@@ -28,27 +28,297 @@
 </div>
 
 <div class="container">
-	<div class="card">
-		<div class="card-header">
-			Old super mario
-		</div>
-		<div class="card-body">
-		  <p class="card-text">This is a super crfricking mario with minimal information.
-			It also simulates an old package that's incompatible only with iOS lower than 7.0.</p>
-			<a class="btn btn-xs btn-primary" href="depictions/?p=com.supermamon.oldpackage">More info</a>
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-header">
-			New fricking mario
-		</div>
-		<div class="card-body">
-		  <p class="card-text">This is a sample package with lots of information.</p>
-		  <a class="btn btn-xs btn-primary" href="depictions/?p=com.supermamon.newpackage">More info</a>
-		</div>
-	</div>
+    <div class="card">
+        <div class="card-header">
+            Old super mario
+        </div>
+        <div class="card-body">
+          <p class="card-text">This is a super crfricking mario with minimal information.
+            It also simulates an old package that's incompatible only with iOS lower than 7.0.</p>
+            <a class="btn btn-xs btn-primary" href="depictions/?p=com.supermamon.oldpackage">More info</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            New fricking mario
+        </div>
+        <div class="card-body">
+          <p class="card-text">This is a sample package with lots of information.</p>
+          <a class="btn btn-xs btn-primary" href="depictions/?p=com.supermamon.newpackage">More info</a>
+        </div>
+    </div>
 
 </div>
+    
 
 </body>
 </html>
+<script>
+  // JavaScript to update the like count using Firebase Realtime Database
+  function updateLikeCount() {
+    const likesRef = database.ref('likes');
+
+    likesRef.transaction((currentLikes) => {
+      return (currentLikes || 0) + 1;
+    }, (error, committed, snapshot) => {
+      if (error) {
+        console.error('Transaction failed abnormally!', error);
+      } else if (!committed) {
+        console.log('Transaction aborted.');
+      } else {
+        const likeCount = snapshot.val();
+        document.getElementById('likeCount').innerText = likeCount + (likeCount === 1 ? ' like' : ' likes');
+      }
+    });
+  }
+</script>
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    databaseURL: "YOUR_DATABASE_URL",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  const database = firebase.database();
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like Cookie Clicker</title>
+    <style>
+        /* Optional: Add some basic styling to the button and count */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4285f4;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer; /* Set the cursor to pointer on hover */
+        }
+
+        button:hover {
+            background-color: #3c78d8;
+        }
+
+        #likeCount {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- The like button and count -->
+    <button onclick="updateLikeCount()">Like</button>
+    <p id="likeCount">0 likes</p>
+
+    <script>
+        // JavaScript to update the like count using cookies
+        let likeCount = parseInt(getCookie('likeCount')) || 0;
+
+        function updateLikeCount() {
+            likeCount++;
+            setCookie('likeCount', likeCount, 365); // Cookie expires in 365 days
+            document.getElementById('likeCount').innerText = likeCount + (likeCount === 1 ? ' like' : ' likes');
+        }
+
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+        }
+
+        // Function to get a cookie value
+        function getCookie(name) {
+            const cookieName = `${name}=`;
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i];
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.indexOf(cookieName) === 0) {
+                    return cookie.substring(cookieName.length, cookie.length);
+                }
+            }
+            return '';
+        }
+    </script>
+
+</body>
+</html>
+<html><head>
+		<title>superfuckingmario</title>
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		
+		<meta property="og:url" content="https://superfuckingmario.com/">
+		<meta name="twitter:url" content="https://superfuckingmario.com/">
+		<meta property="og:title" content="superfuckingmario">
+		<meta name="twitter:title" content="superfuckingmario">
+		<meta property="og:description" content="superfuckingmario">
+		<meta name="twitter:description" content="superfuckingmario">
+		<meta name="description" content="superfuckingmario">
+		<meta property="og:image" content="/superfuckingmario.png">
+		<meta name="twitter:image" content="/superfuckingmario.png">
+		
+		<script>
+			// Initialize pallete
+			var palette = [];
+			for(var i = 0; i <= 36; i++)
+			{
+				palette[i] = {
+					r : 0xFF, 
+					g : 0xFF, 
+					b : 0xFF 
+				}
+			}
+
+			// Load palette
+			var firepal_image = new Image();
+			firepal_image.onload = function()
+			{
+				var temp_canvas = document.createElement("canvas");
+				var temp_ctx = temp_canvas.getContext("2d");
+				temp_canvas.width = 1;
+				temp_canvas.height = 37;
+				temp_ctx.drawImage(firepal_image, 0, 0);
+
+				var firepal_data = temp_ctx.getImageData(0, 0, 1, 37);
+				for(var i = 0; i <= 36; i++)
+				{
+					palette[i].r = firepal_data.data[i * 4 + 0];
+					palette[i].g = firepal_data.data[i * 4 + 1];
+					palette[i].b = firepal_data.data[i * 4 + 2];
+				}
+
+				console.log("loaded firepal!");
+			};
+			firepal_image.src = "firepal.png";
+
+			// App core	
+			function OnLoad()
+			{
+				// Get canvas context
+				var canvas = document.getElementById("logo");
+				var ctx = canvas.getContext("2d");
+				
+				// Load image
+				var logo_image = new Image();
+
+				function OnImageLoad()
+				{
+					// Get logo image data
+					ctx.drawImage(logo_image, 0, 0);
+					var image_data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+					// Setup framebuffer
+					var framebuffer = ctx.createImageData(image_data);
+					var framebuffer_out = ctx.createImageData(image_data);
+					
+					// Judge which pixels are top
+					for (var x = 0; x < canvas.width; x++)
+					{
+						var i = x * 4;
+						var judg = false;
+						for (var y = 0; y < canvas.height; y++)
+						{
+							var judg_now = image_data.data[i] == 0;
+
+							framebuffer.data[i + 0] = 0x00;
+							if (judg_now && !judg)
+								framebuffer.data[i + 1] = 0xFF;
+							else
+								framebuffer.data[i + 1] = 0x00;
+							if (judg_now)
+								framebuffer.data[i + 2] = 0x00;
+							else
+								framebuffer.data[i + 2] = 0xFF;
+							judg = judg_now;
+							i += canvas.width * 4;
+						}
+					}
+
+					// Setup tick clock
+					function Tick()
+					{
+						// Simulate framebuffer
+						for (var y = 1; y < canvas.height; y++)
+						{
+							var i = y * canvas.width * 4;
+							for (var x = 0; x < canvas.width; x++)
+							{
+								if (framebuffer.data[i + 1])
+									framebuffer.data[i + 0] = 36;
+								if (framebuffer.data[i + 0])
+								{
+									var upi = i - canvas.width * 4;
+									var rand = Math.round(Math.random() * 2.0);
+									var xoff = -rand + 1;
+									if (x + xoff < 0)
+										upi = y * canvas.width * 4;
+									else if (x + xoff >= canvas.width)
+										upi = (y * canvas.width - 1) * 4;
+									else
+										upi += xoff * 4;
+									if (framebuffer.data[upi + 2])
+										framebuffer.data[upi + 0] = framebuffer.data[i + 0] - 1;
+									var rand2 = Math.round(Math.random() * 2.0);
+									framebuffer.data[upi + 0] -= rand2 & 1;
+								}
+								i += 4;
+							}
+						}
+
+						// Palettize framebuffer
+						for (var i = 0; i < framebuffer.data.length; i += 4)
+						{
+							if (framebuffer.data[i + 2])
+							{
+								framebuffer_out.data[i + 0] = palette[framebuffer.data[i + 0]].r;
+								framebuffer_out.data[i + 1] = palette[framebuffer.data[i + 0]].g;
+								framebuffer_out.data[i + 2] = palette[framebuffer.data[i + 0]].b;
+								framebuffer_out.data[i + 3] = 0xFF;
+							}
+							else
+							{
+								framebuffer_out.data[i + 0] = 0x00;
+								framebuffer_out.data[i + 1] = 0x00;
+								framebuffer_out.data[i + 2] = 0x00;
+								framebuffer_out.data[i + 3] = 0xFF;
+							}
+						}
+						ctx.putImageData(framebuffer_out, 0, 0);
+					}
+					setInterval(Tick, 100);
+				}
+				
+				logo_image.onload = OnImageLoad;
+				logo_image.src = "logo.png";
+			}
+		</script>
+	</head>
+	<body onload="OnLoad()">
+		superfrickingmario has came
+		<hr>
+		<canvas id="logo" width="400" height="120"><img src="logo.png"></canvas><br>
+		hello have you ever wanted superfuckingmario?
+		<marquee><img src="/superfuckingmario.png"></marquee>
+		order superfuckingmario $$$ today<br>
+		mario music box the game coming soon
+		<img src="micheal.gif">
+	
+
+</body></html>
+
