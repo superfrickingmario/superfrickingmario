@@ -1,152 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>sper frciking mario!!!!!</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-</head>
-<body>
-
-<div class="container">
-	<h1><img src="CydiaIcon.png"> super fricking mario</h1>
-</div>
-
-<div class="container">
-	<div class="well">
-		<p><span class="text-primary"><b>super fricking mario</span></b> is a super fricking mario template.</p>
-		<a class="btn btn-sm btn-default" url="https://www.youtube.com/watch?v=aqJE3_BGIzU&ab_channel=HishamD.Sensei">Add to mario</a>
-	</div>
-</div>
-
-<div class="container">
-  <h3 id="wells" class="page-header">Featured marios</h3>
-</div>
-
-<div class="container">
-	<div class="panel panel-default">
-	  <div class="panel-heading">super fricking mario</div>
-	  <div class="panel-body">
-		This is a sample super fricking mario with minimal information.
-		It also simulates an old package that's incompatible only with super fricking mario lower than 7.0.<br /><br />
-		<a class="btn btn-xs btn-default" href="depictions/?p=com.supermamon.oldpackage">More info</a>
-	  </div>
-	</div>
-
-	<div class="panel panel-default">
-	  <div class="panel-heading">super fricking mario 2</div>
-	  <div class="panel-body">
-		This is a sample super fricking mario with lots of information.<br /><br />
-		<a class="btn btn-xs btn-default" href="depictions/?p=com.supermamon.newpackage">More info</a>
-	  </div>
-	</div>
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Like Button with Live Count</title>
-    <style>
-        /* Optional: Add some basic styling to the button and count */
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4285f4;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #3c78d8;
-        }
-
-        #likeCount {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- The like button and count -->
-    <button onclick="updateLikeCount()">Like</button>
-    <p id="likeCount">0 likes</p>
-
-    <script>
-        // JavaScript to update the like count
-        let likeCount = 0;
-
-        function updateLikeCount() {
-            likeCount++;
-            document.getElementById('likeCount').innerText = likeCount + (likeCount === 1 ? ' like' : ' likes');
-        }
-    </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Like Button with Live Count</title>
-    <style>
-        /* Optional: Add some basic styling to the button and count */
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4285f4;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer; /* Set the cursor to pointer on hover */
-        }
-
-        button:hover {
-            background-color: #3c78d8;
-        }
-
-        #likeCount {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- The like button and count -->
-    <button onclick="updateLikeCount()">Like</bu
-					      <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Like Button with Live Count</title>
-    <style>
-        /* Optional: Add some basic styling to the button and count */
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4285f4;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer; /* Set the cursor to pointer on hover */
-        }
-
-        button:hover {
-            background-color: #3c78d8;
-        }
-
-        #likeCount {
-            margin-top: 10px;
-            font-size: 18px;
-
-
+@ -1,18 +1,18 @@
+<package>
+	<id>com.supermamon.fullpackage</id>
+	<name>Full Package</name>
+	<id>com.mario.fullpackage</id>
+	<name>full of marios</name>
+	<version>2.0.0-1</version>
+	<compatibility>
+		<firmware>
+			<miniOS>7.0</miniOS>
+			<miniOS>14.2</miniOS>
+		</firmware>
+	</compatibility>
+	<dependencies>
+		<package>mobilesubstrate</package>
+	</dependencies>
+	<shortDescription>This is a sample new package. Firmware should be greater than 7.0</shortDescription>
+	<shortDescription>super mario</shortDescription>
+	<descriptionlist>
+		<description>This is an package will full depictions.</description>
+		<description>This is an package will full marios aka ios 16 lockscreen.</description>
+		<description>It has more description lines.</description>
+		<description><![CDATA[
+		You can also have<br/> 
+@ -22,24 +22,24 @@
+	</descriptionlist>
+	<screenshots>
+		<screenshot>
+			<description>This is a description for screenshot 1. It's Cydia!</description>
+			<description>This is a description for screenshot 1. It's mario!!!!!!</description>
+			<image>cydia.jpg</image>
+		</screenshot>		
+		<screenshot>
+			<description>This is a description for screenshot 2. It's another Cydia!</description>
+			<description>This is a description for screenshot 2. It's another MARIO!!!!!</description>
+			<image>cydia.jpg</image>
+		</screenshot>		
+	</screenshots>
+	<changelog>
+		<change>Second release</change>
+		<change>It has feature 1</change>
+		<change>It has feature 2</change>
+		<change>there is no second release</change>
+		<change>it has mario </change>
+		<change>It has mario 2</change>
+	</changelog>
+	<links>
+		<link>
+			<name>/r/jailbreak</name>
+			<url>https://www.reddit.com/r/jailbreak</url>
+			<iconclass>fa fa-reddit</iconclass>
+			<name>super</name>
+			<url>https://www.youtube.com/watch?v=dQw4w9WgXcQ</url>
+			<iconclass>fa fa-youtube</iconclass>
+		</link>
+	</links>
+</package>
+</package>
