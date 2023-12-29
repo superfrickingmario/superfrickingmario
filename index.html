@@ -11,16 +11,16 @@
 <body>
 
 <div class="container">
-	<h1><img src="CydiaIcon.png"> Reposi3</h1>
+    <h1><img src="CydiaIcon.png"> Reposi3</h1>
 </div>
 
 <div class="container">
-	<div class="card">
-		<div class="card-body">
-			<p><span class="text-primary"><b>Reposi3</span></b> is a Cydia repository template.</p>
-			<a class="btn btn-sm btn-primary" href="cydia://url/https://cydia.saurik.com/api/share#?source=https://supermamon.github.io/Reposi3/">Add to Cydia</a>
-		</div>
-	</div>
+    <div class="card">
+        <div class="card-body">
+            <p><span class="text-primary"><b>Reposi3</span></b> is a Cydia repository template.</p>
+            <a class="btn btn-sm btn-primary" href="cydia://url/https://cydia.saurik.com/api/share#?source=https://supermamon.github.io/Reposi3/">Add to Cydia</a>
+        </div>
+    </div>
 </div>
 <p></p>
 <div class="container">
@@ -28,80 +28,28 @@
 </div>
 
 <div class="container">
-	<div class="card">
-		<div class="card-header">
-			Old super mario
-		</div>
-		<div class="card-body">
-		  <p class="card-text">This is a super crfricking mario with minimal information.
-			It also simulates an old package that's incompatible only with iOS lower than 7.0.</p>
-			<a class="btn btn-xs btn-primary" href="depictions/?p=com.supermamon.oldpackage">More info</a>
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-header">
-			New fricking mario
-		</div>
-		<div class="card-body">
-		  <p class="card-text">This is a sample package with lots of information.</p>
-		  <a class="btn btn-xs btn-primary" href="depictions/?p=com.supermamon.newpackage">More info</a>
-		</div>
-	</div>
+    <div class="card">
+        <div class="card-header">
+            Old super mario
+        </div>
+        <div class="card-body">
+          <p class="card-text">This is a super crfricking mario with minimal information.
+            It also simulates an old package that's incompatible only with iOS lower than 7.0.</p>
+            <a class="btn btn-xs btn-primary" href="depictions/?p=com.supermamon.oldpackage">More info</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            New fricking mario
+        </div>
+        <div class="card-body">
+          <p class="card-text">This is a sample package with lots of information.</p>
+          <a class="btn btn-xs btn-primary" href="depictions/?p=com.supermamon.newpackage">More info</a>
+        </div>
+    </div>
 
 </div>
-	
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Like Button with Live Count</title>
-    <style>
-        /* Optional: Add some basic styling to the button and count */
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4285f4;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer; /* Set the cursor to pointer on hover */
-        }
-
-        button:hover {
-            background-color: #3c78d8;
-        }
-
-        #likeCount {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- The like button and count -->
-    <button onclick="updateLikeCount()">Like</button>
-    <p id="likeCount">0 likes</p>
-
-    <script>
-        // JavaScript to update the like count using local storage
-        let likeCount = parseInt(localStorage.getItem('likeCount')) || 0;
-
-        function updateLikeCount() {
-            likeCount++;
-            localStorage.setItem('likeCount', likeCount);
-            document.getElementById('likeCount').innerText = likeCount + (likeCount === 1 ? ' like' : ' likes');
-        }
-
-        // Initialize the like count on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('likeCount').innerText = likeCount + (likeCount === 1 ? ' like' : ' likes');
-        });
-    </script>
+    
 
 </body>
 </html>
