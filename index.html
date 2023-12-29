@@ -53,3 +53,23 @@
 
 </body>
 </html>
+<script>
+  // JavaScript to update the like count using Firebase Realtime Database
+  function updateLikeCount() {
+    const likesRef = database.ref('likes');
+
+    likesRef.transaction((currentLikes) => {
+      return (currentLikes || 0) + 1;
+    }, (error, committed, snapshot) => {
+      if (error) {
+        console.error('Transaction failed abnormally!', error);
+      } else if (!committed) {
+        console.log('Transaction aborted.');
+      } else {
+        const likeCount = snapshot.val();
+        document.getElementById('likeCount').innerText = likeCount + (likeCount === 1 ? ' like' : ' likes');
+      }
+    });
+  }
+</script>
+
